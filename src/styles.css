@@ -177,13 +177,15 @@
   font-weight: 600;
   color: oklch(0.85 0.02 85);
 }
-@utility eyebrow-dot::before {
-  content: "";
-  width: 0.375rem;
-  height: 0.375rem;
-  border-radius: 999px;
-  background: var(--gold);
-  display: inline-block;
+@utility eyebrow-dot {
+  &::before {
+    content: "";
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 999px;
+    background: var(--gold);
+    display: inline-block;
+  }
 }
 
 @utility display-1 {
