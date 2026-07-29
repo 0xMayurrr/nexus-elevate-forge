@@ -59,13 +59,13 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            to="/about"
+            to="/contact"
             className={`text-[0.9rem] font-medium ${textCls} opacity-85 hover:opacity-100`}
           >
             Contact
           </Link>
           <Link
-            to="/services"
+            to="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-[color:var(--navy-deep)] px-4 py-2.5 text-[0.85rem] font-medium text-[color:var(--cream)] transition-transform hover:-translate-y-0.5"
           >
             Talk to us <ArrowUpRight className="size-4" />
@@ -95,7 +95,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 </Link>
               ))}
               <Link
-                to="/services"
+                to="/contact"
                 className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--navy-deep)] px-5 py-3 text-sm font-medium text-[color:var(--cream)]"
               >
                 Talk to us <ArrowUpRight className="size-4" />
