@@ -7,7 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { Hexagon } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -112,11 +113,103 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function Preloader() {
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 5;
+      });
+    }, 45);
+
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => setLoading(false), 500);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  if (!loading) return null;
+
+  const brandName = "MindtreeNexus";
+
+  return (
+    <div
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[color:var(--navy-deep)] transition-all duration-500 ${
+        fadeOut ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"
+      }`}
+    >
+      {/* Background Soft Glow */}
+      <div className="absolute h-96 w-96 rounded-full bg-[color:var(--navy-soft)]/40 blur-3xl pointer-events-none animate-pulse" />
+
+      <div className="relative z-10 flex flex-col items-center gap-6">
+        {/* Animated Brand Emblem */}
+        <div className="relative flex items-center justify-center">
+          <div className="absolute size-24 rounded-full border border-[color:var(--gold)]/30 animate-ping" />
+          <svg width="72" height="72" viewBox="0 0 32 32" fill="none" className="drop-shadow-lg">
+            <circle cx="16" cy="16" r="14" stroke="var(--cream)" strokeWidth="1.4" opacity="0.35" className="animate-spin-slow" />
+            <path
+              d="M6 22 L14 10 L18 18 L26 8"
+              stroke="var(--cream)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-all duration-1000"
+            />
+            <circle cx="26" cy="8" r="2.5" fill="var(--gold)" className="animate-bounce" />
+          </svg>
+        </div>
+
+        {/* Animated Brand Text (Letter by Letter) */}
+        <div className="flex items-center gap-1">
+          {brandName.split("").map((letter, i) => (
+            <span
+              key={i}
+              className="font-display text-3xl font-bold tracking-tight text-[color:var(--cream)] animate-fade-in"
+              style={{
+                animationDelay: `${i * 60}ms`,
+                animationFillMode: "both",
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
+
+        {/* Subtle Progress Indicator */}
+        <div className="mt-2 flex flex-col items-center gap-2">
+          <div className="h-[2px] w-48 overflow-hidden rounded-full bg-white/10">
+            <div
+              className="h-full bg-gradient-to-r from-[color:var(--cream)] via-[color:var(--gold)] to-[color:var(--cream)] transition-all duration-150 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-[color:var(--metal)]">
+            Enterprise Operations — {progress}%
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Preloader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

@@ -3,9 +3,8 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
-import { PageHero } from "@/components/site/PageHero";
+
 import { Reveal } from "@/components/site/Reveal";
-import heroPortfolio from "@/assets/hero-portfolio.jpg";
 import case1 from "@/assets/case-1.jpg";
 import case2 from "@/assets/case-2.jpg";
 import case3 from "@/assets/case-3.jpg";
@@ -48,19 +47,35 @@ function PortfolioPage() {
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
       <main>
-        <PageHero
-          eyebrow="Portfolio"
-          title={<>The work our clients agreed to talk about.</>}
-          body="Selected programs across financial services, healthcare, retail and the public sector — each with the outcomes we and our clients agreed to publish."
-          image={heroPortfolio}
-          imageAlt="Modern corporate skyscraper at dusk"
-          actions={
-            <>
-              <Link to="/about" className="btn-solid-light">Discuss a program <ArrowUpRight className="size-4" /></Link>
-              <Link to="/insights" className="btn-ghost-dark">Read our insights</Link>
-            </>
-          }
-        />
+        {/* BESPOKE PORTFOLIO HERO: Index Layout */}
+        <section className="surface-dark relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32 border-b border-white/10">
+          <div className="absolute top-0 right-[20%] h-[1000px] w-[1000px] rounded-full bg-[color:var(--navy-soft)]/20 blur-[150px] mix-blend-screen pointer-events-none" />
+
+          <div className="container-wide relative z-10">
+            <Reveal>
+              <div className="flex items-center gap-4 text-[color:var(--cream)]/60 text-sm font-semibold tracking-widest uppercase">
+                <span>Index</span>
+                <span className="w-12 h-px bg-white/20"></span>
+                <span>Client Outcomes</span>
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="font-display font-bold leading-tight tracking-tight text-[color:var(--cream)] mt-12 max-w-5xl" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+                The engineering behind the <span className="text-[color:var(--gold)]">$18M</span> efficiency gains, the <span className="text-[color:var(--gold)]">62%</span> faster incident resolutions, and the <span className="text-[color:var(--gold)]">1,400-store</span> digital unified commerce platforms.
+              </h1>
+            </Reveal>
+            <Reveal delay={140}>
+              <div className="mt-16 flex flex-wrap gap-4 items-center border-t border-white/10 pt-8">
+                <Link to="/about" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                  Start a project
+                </Link>
+                <Link to="/services" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
+                  Explore services
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
 
         {/* Featured case */}
         <section className="section-pad">

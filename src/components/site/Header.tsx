@@ -30,7 +30,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const solid = scrolled || variant === "light" || open;
   const textCls = solid ? "text-[color:var(--navy-deep)]" : "text-[color:var(--cream)]";
   const borderCls = solid ? "border-b border-[color:var(--hairline)]" : "border-b border-transparent";
-  const bgCls = solid ? "bg-[color:var(--cream)]/95 backdrop-blur-md" : "bg-transparent";
+  const bgCls = solid ? "bg-[color:var(--nav-bg)]/95 backdrop-blur-md" : "bg-transparent";
 
   return (
     <header

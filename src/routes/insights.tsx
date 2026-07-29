@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { PageHero } from "@/components/site/PageHero";
+
 import { Reveal } from "@/components/site/Reveal";
-import heroInsights from "@/assets/hero-insights.jpg";
 import abstract1 from "@/assets/abstract-1.jpg";
 import case1 from "@/assets/case-1.jpg";
 import case2 from "@/assets/case-2.jpg";
@@ -47,19 +46,50 @@ function InsightsPage() {
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
       <main>
-        <PageHero
-          eyebrow="Insights"
-          title={<>Perspectives from the practitioners.</>}
-          body="Executive briefings, deep engineering essays and short reads from the teams doing the work — no thought-leadership recycling."
-          image={heroInsights}
-          imageAlt="Executive reading a printed business report by a window"
-          actions={
-            <>
-              <a href="#featured" className="btn-solid-light">Read the latest brief <ArrowUpRight className="size-4" /></a>
-              <Link to="/about" className="btn-ghost-dark">Subscribe</Link>
-            </>
-          }
-        />
+        {/* BESPOKE INSIGHTS HERO: Editorial Layout */}
+        <section className="surface-dark relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32 border-b border-white/10">
+          <div className="absolute top-0 right-0 h-[800px] w-1/2 bg-white/5 pointer-events-none" />
+          <div className="absolute top-1/2 right-1/4 h-[800px] w-[800px] rounded-full bg-[color:var(--navy-soft)]/20 blur-[150px] mix-blend-screen opacity-50 -translate-y-1/2 pointer-events-none" />
+
+          <div className="container-wide relative z-10 grid gap-16 lg:grid-cols-[1fr_1.5fr] lg:items-center">
+            <div className="lg:pr-12 lg:border-r lg:border-white/10 h-full flex flex-col justify-center">
+              <Reveal>
+                <h1 className="font-display font-bold leading-none tracking-tight text-[color:var(--cream)] uppercase" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)' }}>
+                  Insights &<br />Briefings
+                </h1>
+              </Reveal>
+              <Reveal delay={80}>
+                <p className="mt-8 text-[color:var(--cream)]/60 text-lg uppercase tracking-widest font-semibold">
+                  Vol. 2026
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="lg:pl-8">
+              <Reveal delay={120}>
+                <p className="eyebrow-light eyebrow-dot text-[color:var(--gold)]">Latest Publication</p>
+              </Reveal>
+              <Reveal delay={160}>
+                <Link to="/insights" className="group block mt-8">
+                  <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight text-[color:var(--cream)] transition-colors group-hover:text-white">
+                    The board-ready case for enterprise AI in the next 24 months.
+                  </h2>
+                  <p className="mt-6 text-[color:var(--cream)]/70 text-lg max-w-2xl leading-relaxed">
+                    Why the transition from experimental GenAI to production-grade intelligence requires a fundamental rethinking of data architecture, compute spend, and executive accountability.
+                  </p>
+                  <div className="mt-8 flex items-center gap-4 text-sm font-semibold tracking-widest uppercase text-[color:var(--cream)]/50">
+                    <span className="text-[color:var(--cream)]">AI Strategy</span>
+                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                    <span>March 2026</span>
+                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                    <span>8 min read</span>
+                    <ArrowUpRight className="ml-auto size-5 text-[color:var(--gold)] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+        </section>
 
         {/* Featured */}
         <section id="featured" className="section-pad">

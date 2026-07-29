@@ -3,9 +3,8 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
-import { PageHero } from "@/components/site/PageHero";
+
 import { Reveal } from "@/components/site/Reveal";
-import heroAbout from "@/assets/hero-about.jpg";
 import l1 from "@/assets/leader-1.jpg";
 import l2 from "@/assets/leader-2.jpg";
 import l3 from "@/assets/leader-3.jpg";
@@ -42,19 +41,55 @@ function AboutPage() {
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
       <main>
-        <PageHero
-          eyebrow="About MindtreeNexus"
-          title={<>A long-horizon partner for the enterprise moment ahead.</>}
-          body="We are 600+ engineers, strategists and industry specialists working alongside the leaders of financial services, healthcare, retail and the public sector — building the intelligent operating systems of the modern enterprise."
-          image={heroAbout}
-          imageAlt="Executive leaders in a modern corporate lobby"
-          actions={
-            <>
-              <Link to="/portfolio" className="btn-solid-light">See our work <ArrowUpRight className="size-4" /></Link>
-              <Link to="/services" className="btn-ghost-dark">What we do</Link>
-            </>
-          }
-        />
+        {/* BESPOKE ABOUT HERO: Split-Stat Layout */}
+        <section className="surface-dark relative overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32 border-b border-white/10">
+          <div className="absolute top-0 right-0 h-[800px] w-[800px] rounded-full bg-[color:var(--navy-soft)]/40 blur-[120px] mix-blend-screen opacity-50 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+
+          <div className="container-wide relative z-10 grid gap-16 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+            <div>
+              <Reveal>
+                <p className="eyebrow-light eyebrow-dot">About MindtreeNexus</p>
+              </Reveal>
+              <Reveal delay={80}>
+                <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+                  A long-horizon partner for the enterprise moment ahead.
+                </h1>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="lede mt-8 text-[color:var(--cream)]/80">
+                  We are engineers, strategists and industry specialists working alongside the leaders of financial services, healthcare, retail and the public sector — building the intelligent operating systems of the modern enterprise.
+                </p>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="mt-12 flex flex-wrap gap-4">
+                  <Link to="/portfolio" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                    See our work
+                  </Link>
+                  <Link to="/services" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
+                    What we do
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Integrated Stats Grid */}
+            <div className="grid grid-cols-2 gap-8 lg:pl-12 lg:border-l lg:border-white/10">
+              {[
+                { label: "Founded", value: "2011" },
+                { label: "Engineers", value: "600+" },
+                { label: "Global Offices", value: "18" },
+                { label: "Client Retention", value: "94%" },
+              ].map((stat, i) => (
+                <Reveal key={stat.label} delay={160 + i * 40}>
+                  <div>
+                    <p className="font-display text-4xl font-bold text-[color:var(--cream)]">{stat.value}</p>
+                    <p className="mt-2 text-sm uppercase tracking-[0.18em] text-[color:var(--cream)]/60 font-semibold">{stat.label}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Story */}
         <section className="section-pad">

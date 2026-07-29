@@ -4,9 +4,8 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
 import { LogoStrip } from "@/components/site/LogoStrip";
-import { PageHero } from "@/components/site/PageHero";
+
 import { Reveal } from "@/components/site/Reveal";
-import heroServices from "@/assets/hero-services.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -41,24 +40,51 @@ function ServicesPage() {
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
       <main>
-        <PageHero
-          eyebrow="Services"
-          title={<>Six practices designed to work as one.</>}
-          body="From boardroom strategy to 24/7 operations, our practices share teams, tooling and accountability — so the plan and the platform arrive together."
-          image={heroServices}
-          imageAlt="Modern data center corridor"
-          actions={
-            <>
-              <Link to="/about" className="btn-solid-light">Book a discovery call <ArrowUpRight className="size-4" /></Link>
-              <Link to="/portfolio" className="btn-ghost-dark">See outcomes</Link>
-            </>
-          }
-        />
+        {/* BESPOKE SERVICES HERO: Sticky Layout */}
+        <section className="surface-dark relative overflow-hidden pt-32 pb-24 md:pt-44 lg:pb-0 border-b border-white/10">
+          <div className="absolute top-1/2 left-0 h-[1000px] w-[1000px] rounded-full bg-[color:var(--navy-soft)]/30 blur-[150px] mix-blend-screen opacity-50 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+
+          <div className="container-wide relative z-10 grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:min-h-[60vh]">
+            <div className="lg:sticky lg:top-40 lg:pb-32">
+              <Reveal>
+                <p className="eyebrow-light eyebrow-dot">Services</p>
+              </Reveal>
+              <Reveal delay={80}>
+                <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
+                  Six practices designed to work as one.
+                </h1>
+              </Reveal>
+            </div>
+
+            <div className="lg:pt-4 lg:pb-32">
+              <Reveal delay={120}>
+                <p className="lede text-[color:var(--cream)]/80 text-xl md:text-2xl leading-relaxed">
+                  We combine deep industry knowledge with modern engineering to solve the problems that actually matter to your business. From boardroom strategy to 24/7 operations, our practices share teams, tooling and accountability.
+                </p>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-8 text-[color:var(--cream)]/60 max-w-xl text-lg leading-relaxed">
+                  We built our firm differently: partners architect the answer and stay on the floor while it's engineered. No handoffs. No excuses.
+                </p>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="mt-16 flex flex-wrap gap-4">
+                  <Link to="/about" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                    Book a discovery call
+                  </Link>
+                  <a href="#practices" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
+                    View practices
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
 
         <LogoStrip variant="light" />
 
         {/* Service categories */}
-        <section className="section-pad">
+        <section id="practices" className="section-pad">
           <div className="container-wide">
             <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">
               <div>

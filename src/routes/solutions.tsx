@@ -3,9 +3,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
-import { PageHero } from "@/components/site/PageHero";
+
 import { Reveal } from "@/components/site/Reveal";
-import heroSolutions from "@/assets/hero-solutions.jpg";
 import abstract1 from "@/assets/abstract-1.jpg";
 
 export const Route = createFileRoute("/solutions")({
@@ -49,21 +48,36 @@ function SolutionsPage() {
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
       <main>
-        <PageHero
-          eyebrow="Solutions"
-          title={<>Solutions organized around the way you actually think about the business.</>}
-          body="By problem. By industry. By function. Same senior team, same delivery discipline — shaped to the ambition and risk of your context."
-          image={heroSolutions}
-          imageAlt="Consultants reviewing system architecture at a whiteboard"
-          actions={
-            <>
-              <Link to="/about" className="btn-solid-light">Talk to a solution lead <ArrowUpRight className="size-4" /></Link>
-              <Link to="/services" className="btn-ghost-dark">Explore services</Link>
-            </>
-          }
-        />
+        {/* BESPOKE SOLUTIONS HERO: Minimalist Glow Layout */}
+        <section className="surface-dark relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-36 border-b border-white/10 flex flex-col items-center text-center">
+          <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] rounded-full bg-[color:var(--navy-soft)]/50 blur-[150px] mix-blend-screen opacity-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-        {/* Solutions by problem */}
+          <div className="container-wide relative z-10 max-w-5xl">
+            <Reveal>
+              <p className="eyebrow-light eyebrow-dot">Solutions</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6 mx-auto" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
+                Organized around the way you actually think about the business.
+              </h1>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="lede mt-8 text-[color:var(--cream)]/80 mx-auto text-xl">
+                By problem. By industry. By function. Same senior team, same delivery discipline — shaped to the ambition and risk of your context.
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="mt-12 flex flex-wrap justify-center gap-4">
+                <Link to="/about" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                  Talk to a solution lead
+                </Link>
+                <Link to="/portfolio" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
+                  See outcomes
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>{/* Solutions by problem */}
         <section className="section-pad">
           <div className="container-wide">
             <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">

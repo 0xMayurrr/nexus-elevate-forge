@@ -70,9 +70,11 @@
   --radius: 0.5rem;
 
   /* Brand tokens */
-  --navy-deep: oklch(0.18 0.045 258);
-  --navy: oklch(0.24 0.055 258);
-  --navy-soft: oklch(0.32 0.045 258);
+  --navy-deep: #1b2a4a;
+  --navy: #243965;
+  --navy-soft: #304c86;
+  --nav-bg: #ced1d6;
+  --blue-bright: oklch(0.68 0.16 245);
   --cream: oklch(0.982 0.008 85);
   --slate-ink: oklch(0.28 0.02 260);
   --metal: oklch(0.62 0.025 250);
@@ -121,23 +123,31 @@
   * {
     border-color: var(--color-border);
   }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4, h5 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     font-weight: 600;
     color: var(--navy-deep);
   }
+
   ::selection {
     background: var(--navy-deep);
     color: var(--cream);
@@ -152,8 +162,11 @@
   padding-inline: 1.5rem;
   max-width: 82rem;
 }
+
 @media (min-width: 1024px) {
-  .container-wide { padding-inline: 2.5rem; }
+  .container-wide {
+    padding-inline: 2.5rem;
+  }
 }
 
 @utility eyebrow {
@@ -167,6 +180,7 @@
   font-weight: 600;
   color: var(--metal);
 }
+
 @utility eyebrow-light {
   display: inline-flex;
   align-items: center;
@@ -177,6 +191,7 @@
   font-weight: 600;
   color: oklch(0.85 0.02 85);
 }
+
 @utility eyebrow-dot {
   &::before {
     content: "";
@@ -195,6 +210,7 @@
   line-height: 1.02;
   letter-spacing: -0.03em;
 }
+
 @utility display-2 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -202,6 +218,7 @@
   line-height: 1.05;
   letter-spacing: -0.028em;
 }
+
 @utility display-3 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -209,6 +226,7 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
+
 @utility lede {
   font-size: clamp(1.05rem, 1.15vw, 1.2rem);
   line-height: 1.6;
@@ -219,6 +237,7 @@
 @utility section-pad {
   padding-block: clamp(4.5rem, 9vw, 8rem);
 }
+
 @utility section-pad-sm {
   padding-block: clamp(3rem, 6vw, 5rem);
 }
@@ -226,6 +245,7 @@
 @utility hairline {
   border-top: 1px solid var(--hairline);
 }
+
 @utility hairline-dark {
   border-top: 1px solid var(--hairline-dark);
 }
@@ -238,9 +258,10 @@
     0 1px 0 oklch(0.22 0.03 260 / 3%),
     0 20px 40px -30px oklch(0.22 0.03 260 / 15%);
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-              box-shadow 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-              border-color 0.3s ease;
+    box-shadow 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.3s ease;
 }
+
 @utility card-elev-hover {
   &:hover {
     transform: translateY(-4px);
@@ -262,13 +283,17 @@
   font-size: 0.9rem;
   letter-spacing: -0.005em;
   border-radius: 999px;
+  border: 1px solid var(--navy-deep);
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
   &:hover {
-    background: oklch(0.28 0.06 258);
+    background: transparent;
+    color: var(--navy-deep);
     transform: translateY(-1px);
     box-shadow: 0 12px 30px -12px oklch(0.22 0.05 258 / 45%);
   }
 }
+
 @utility btn-ghost-light {
   display: inline-flex;
   align-items: center;
@@ -280,12 +305,14 @@
   border-radius: 999px;
   border: 1px solid oklch(0.82 0.015 260);
   transition: all 0.25s ease;
+
   &:hover {
     background: var(--navy-deep);
     color: var(--cream);
     border-color: var(--navy-deep);
   }
 }
+
 @utility btn-ghost-dark {
   display: inline-flex;
   align-items: center;
@@ -297,12 +324,14 @@
   border-radius: 999px;
   border: 1px solid oklch(1 0 0 / 22%);
   transition: all 0.25s ease;
+
   &:hover {
     background: var(--cream);
     color: var(--navy-deep);
     border-color: var(--cream);
   }
 }
+
 @utility btn-solid-light {
   display: inline-flex;
   align-items: center;
@@ -314,6 +343,7 @@
   font-size: 0.9rem;
   border-radius: 999px;
   transition: all 0.25s ease;
+
   &:hover {
     background: oklch(1 0 0);
     transform: translateY(-1px);
@@ -328,13 +358,16 @@
   font-size: 0.92rem;
   color: var(--navy-deep);
   position: relative;
+
   & svg {
     transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
+
   &:hover svg {
     transform: translateX(4px);
   }
 }
+
 @utility arrow-link-light {
   display: inline-flex;
   align-items: center;
@@ -342,15 +375,38 @@
   font-weight: 500;
   font-size: 0.92rem;
   color: var(--cream);
-  & svg { transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
-  &:hover svg { transform: translateX(4px); }
+
+  & svg {
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
 }
 
 @utility surface-dark {
   background: var(--navy-deep);
   color: var(--cream);
-  & h1, & h2, & h3, & h4 { color: var(--cream); }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    color: var(--cream);
+  }
 }
+
+@utility surface-mild {
+  background: oklch(0.98 0.01 70);
+  color: var(--navy-deep);
+}
+
+@utility surface-gradient {
+  background: linear-gradient(135deg, oklch(0.99 0.004 85) 40%, oklch(0.95 0.03 258) 100%);
+  color: var(--navy-deep);
+}
+
 @utility surface-cream {
   background: var(--cream);
 }
@@ -359,6 +415,7 @@
   height: 1px;
   background: var(--hairline);
 }
+
 @utility rule-thin-dark {
   height: 1px;
   background: oklch(1 0 0 / 12%);
@@ -369,13 +426,34 @@
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-              transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: opacity, transform;
 }
+
 @utility reveal-in {
   opacity: 1;
   transform: none;
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
+
+/* ---------- Marquee Animation ---------- */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: scroll-left 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
