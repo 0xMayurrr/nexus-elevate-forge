@@ -12,25 +12,16 @@ const NAV = [
 ] as const;
 
 export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  const solid = scrolled || variant === "light" || open;
-  const textCls = solid ? "text-[color:var(--navy-deep)]" : "text-[color:var(--cream)]";
-  const borderCls = solid ? "border-b border-[color:var(--hairline)]" : "border-b border-transparent";
-  const bgCls = solid ? "bg-[color:var(--nav-bg)]/95 backdrop-blur-md" : "bg-transparent";
+  const textCls = "text-[color:var(--navy-deep)]";
+  const borderCls = "border-b border-[color:var(--hairline)]";
+  const bgCls = "bg-[color:var(--nav-bg)]/95 backdrop-blur-md";
 
   return (
     <header
@@ -38,7 +29,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
     >
       <div className="container-wide flex h-16 items-center justify-between md:h-20">
         <Link to="/" className={`flex items-center gap-2.5 ${textCls}`}>
-          <LogoMark solid={solid} />
+          <LogoMark />
           <span className="font-display text-[1.05rem] font-semibold tracking-tight">
             MindtreeNexus
           </span>
@@ -57,7 +48,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
                   {item.label}
                   {active && (
                     <span
-                      className={`absolute -bottom-1.5 left-0 h-[2px] w-full ${solid ? "bg-[color:var(--navy-deep)]" : "bg-[color:var(--gold)]"}`}
+                      className="absolute -bottom-1.5 left-0 h-[2px] w-full bg-[color:var(--navy-deep)]"
                     />
                   )}
                 </span>
@@ -75,11 +66,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
           </Link>
           <Link
             to="/services"
-            className={
-              solid
-                ? "inline-flex items-center gap-2 rounded-full bg-[color:var(--navy-deep)] px-4 py-2.5 text-[0.85rem] font-medium text-[color:var(--cream)] transition-transform hover:-translate-y-0.5"
-                : "inline-flex items-center gap-2 rounded-full bg-[color:var(--cream)] px-4 py-2.5 text-[0.85rem] font-medium text-[color:var(--navy-deep)] transition-transform hover:-translate-y-0.5"
-            }
+            className="inline-flex items-center gap-2 rounded-full bg-[color:var(--navy-deep)] px-4 py-2.5 text-[0.85rem] font-medium text-[color:var(--cream)] transition-transform hover:-translate-y-0.5"
           >
             Talk to us <ArrowUpRight className="size-4" />
           </Link>
@@ -121,8 +108,8 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
   );
 }
 
-function LogoMark({ solid }: { solid: boolean }) {
-  const stroke = solid ? "var(--navy-deep)" : "var(--cream)";
+function LogoMark() {
+  const stroke = "var(--navy-deep)";
   return (
     <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
       <circle cx="16" cy="16" r="14" stroke={stroke} strokeWidth="1.4" opacity="0.35" />
