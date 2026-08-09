@@ -104,6 +104,7 @@ export function Footer() {
             <a href="#" className="hover:text-[color:var(--cream)]">Terms</a>
             <a href="#" className="hover:text-[color:var(--cream)]">Modern Slavery</a>
             <a href="#" className="hover:text-[color:var(--cream)]">Responsible AI</a>
+            <Link to="/admin" className="hover:text-[color:var(--cream)] transition-colors">Admin Portal</Link>
           </div>
         </div>
       </div>
