@@ -14,10 +14,10 @@ interface CTAProps {
 
 export function CTA({
   eyebrow = "Partner with us",
-  title,
-  body,
-  primaryLabel = "Book a strategy session",
-  primaryTo = "/about",
+  title = "Let's make technology work for your business.",
+  body = "Whether you need managed IT support or a product built from the ground up, we'll respond within one business day with a clear next step.",
+  primaryLabel = "Book a discovery call",
+  primaryTo = "/contact",
   secondaryLabel = "Explore services",
   secondaryTo = "/services",
 }: CTAProps) {

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
@@ -12,36 +13,89 @@ import case3 from "@/assets/case-3.jpg";
 export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
-      { title: "Insights — Perspectives on AI, Cloud & the Enterprise | MindtreeNexus" },
-      { name: "description", content: "Point-of-view articles, research and executive briefings from the practitioners at MindtreeNexus." },
-      { property: "og:title", content: "MindtreeNexus Insights" },
-      { property: "og:description", content: "Perspectives from the teams doing the work — AI, cloud, engineering and operating models." },
+      { title: "Insights & Briefings | NexusMindTree" },
+      { name: "description", content: "Practical briefings on managed IT, cloud architecture, and product engineering from the Nexus Mind Tree team." },
+      { property: "og:title", content: "NexusMindTree Insights" },
+      { property: "og:description", content: "Executive briefs and engineering notes on IT support, cloud, and digital products." },
     ],
   }),
   component: InsightsPage,
 });
 
-const CATEGORIES = ["All", "AI Strategy", "Cloud", "Engineering", "Operations", "Cybersecurity", "Industry"];
+const CATEGORIES = ["All", "Managed IT", "Cloud", "Engineering", "Operations", "Cybersecurity", "Industry"];
 
 const FEATURED = {
-  tag: "Executive Brief · AI Strategy",
+  tag: "Executive Brief · Managed IT",
+  title: "Managed IT vs break/fix: what actually changes for your business",
+  body: "How to compare scope, SLAs, security responsibilities, and co-managed models before you sign.",
+  author: "Founding Team",
   date: "March 2026",
-  read: "12 min read",
-  title: "The board-ready case for enterprise AI in the next 24 months",
-  body: "How to translate a portfolio of AI use cases into an investment thesis your board will fund — and your auditors will sign.",
+  read: "6 min read",
   img: abstract1,
 };
 
 const POSTS = [
-  { img: case1, tag: "Cloud", date: "Feb 2026", read: "6 min", title: "FinOps as a growth lever, not a cost-control exercise" },
-  { img: case2, tag: "Engineering", date: "Feb 2026", read: "10 min", title: "Why platform engineering is the new operating system for the enterprise" },
-  { img: case3, tag: "Industry", date: "Jan 2026", read: "8 min", title: "Ambient AI in healthcare: what actually works at ward scale" },
-  { img: abstract1, tag: "AI Strategy", date: "Jan 2026", read: "7 min", title: "Responsible AI isn't a checklist — it's an operating model" },
-  { img: case1, tag: "Cybersecurity", date: "Dec 2025", read: "9 min", title: "Zero-trust for regulated industries, without the theatre" },
-  { img: case2, tag: "Operations", date: "Dec 2025", read: "5 min", title: "The quiet economics of a great service desk" },
+  {
+    tag: "Cloud",
+    title: "Cloud cost control without killing momentum",
+    body: "Practical guardrails for cloud spend that don't slow down engineering teams.",
+    author: "Nexus Mind Tree",
+    date: "March 2026",
+    read: "6 min read",
+    img: case1,
+  },
+  {
+    tag: "Engineering",
+    title: "When to build a custom product — and when to buy",
+    body: "A framework for deciding whether software gives you an edge or just maintenance.",
+    author: "Nexus Mind Tree",
+    date: "February 2026",
+    read: "8 min read",
+    img: case2,
+  },
+  {
+    tag: "Cybersecurity",
+    title: "Microsoft 365 hardening: the first 10 steps",
+    body: "High-impact security baselines every organisation should turn on this week.",
+    author: "Nexus Mind Tree",
+    date: "February 2026",
+    read: "7 min read",
+    img: case3,
+  },
+  {
+    tag: "Managed IT",
+    title: "Co-managed IT: making internal teams and partners work as one",
+    body: "How to divide responsibilities between your in-house IT and an external provider.",
+    author: "Nexus Mind Tree",
+    date: "January 2026",
+    read: "6 min read",
+    img: abstract1,
+  },
+  {
+    tag: "Cybersecurity",
+    title: "Security that fits growing businesses (without enterprise bloat)",
+    body: "Pragmatic threat models and controls that protect without paralyzing.",
+    author: "Nexus Mind Tree",
+    date: "January 2026",
+    read: "9 min read",
+    img: case1,
+  },
+  {
+    tag: "Operations",
+    title: "The quiet economics of a great service desk",
+    body: "Why first-contact resolution and clear escalation save more than just tickets.",
+    author: "Nexus Mind Tree",
+    date: "January 2026",
+    read: "5 min read",
+    img: case2,
+  },
 ];
 
 function InsightsPage() {
+  const [active, setActive] = useState("All");
+
+  const filteredPosts = active === "All" ? POSTS : POSTS.filter((p) => p.tag === active);
+
   return (
     <div className="min-h-screen bg-[color:var(--cream)]">
       <Header />
@@ -70,75 +124,79 @@ function InsightsPage() {
                 <p className="eyebrow-light eyebrow-dot text-[color:var(--gold)]">Latest Publication</p>
               </Reveal>
               <Reveal delay={160}>
-                <Link to="/insights" className="group block mt-8">
-                  <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight text-[color:var(--cream)] transition-colors group-hover:text-white">
-                    The board-ready case for enterprise AI in the next 24 months.
+                <div className="mt-6">
+                  <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight text-[color:var(--cream)]">
+                    Thinking out loud on support, systems, and software.
                   </h2>
-                  <p className="mt-6 text-[color:var(--cream)]/70 text-lg max-w-2xl leading-relaxed">
-                    Why the transition from experimental GenAI to production-grade intelligence requires a fundamental rethinking of data architecture, compute spend, and executive accountability.
+                  <p className="mt-4 text-[color:var(--cream)]/70 text-base max-w-2xl leading-relaxed">
+                    We write about what we learn in production — cloud trade-offs, managed IT reality, and how to build software that lasts.
                   </p>
-                  <div className="mt-8 flex items-center gap-4 text-sm font-semibold tracking-widest uppercase text-[color:var(--cream)]/50">
-                    <span className="text-[color:var(--cream)]">AI Strategy</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                    <span>March 2026</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                    <span>8 min read</span>
-                    <ArrowUpRight className="ml-auto size-5 text-[color:var(--gold)] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </div>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="mt-8 rounded-2xl border border-white/15 bg-white/[0.04] p-6 backdrop-blur">
+                  <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-[color:var(--gold)]">
+                    <span className="font-semibold">Featured Brief</span>
+                    <span>·</span>
+                    <span>Managed IT · March 2026 · 6 min read</span>
                   </div>
-                </Link>
+                  <h3 className="font-display text-xl font-bold text-[color:var(--cream)] mt-3">
+                    Managed IT vs break/fix: what actually changes for your business.
+                  </h3>
+                  <p className="text-[color:var(--cream)]/70 mt-2 text-sm leading-relaxed">
+                    Why proactive support, clear SLAs, and continuous improvement matter more than another ticket queue — and how to choose a partner when you're starting fresh.
+                  </p>
+                </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* Featured */}
-        <section id="featured" className="section-pad">
+        {/* Featured brief card */}
+        <section className="section-pad">
           <div className="container-wide">
             <Reveal>
-              <Link to="/insights" className="card-elev card-elev-hover group block overflow-hidden">
+              <article className="card-elev overflow-hidden">
                 <div className="grid lg:grid-cols-[1.1fr_1fr]">
-                  <div className="relative min-h-[360px] overflow-hidden">
+                  <div className="relative min-h-[340px]">
                     <img
                       src={FEATURED.img}
                       alt=""
                       width={1400}
                       height={1000}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
-                  <div className="p-8 md:p-12 lg:p-14">
-                    <div className="flex flex-wrap items-center gap-3 text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--metal)]">
-                      <span className="font-semibold text-[color:var(--navy-deep)]">{FEATURED.tag}</span>
-                      <span>·</span>
-                      <span>{FEATURED.date}</span>
-                      <span>·</span>
+                  <div className="p-8 md:p-12">
+                    <p className="eyebrow eyebrow-dot">{FEATURED.tag}</p>
+                    <h2 className="display-2 mt-4">{FEATURED.title}</h2>
+                    <p className="lede mt-5">{FEATURED.body}</p>
+                    <div className="mt-8 flex items-center justify-between border-t border-[color:var(--hairline)] pt-5 text-sm text-[color:var(--metal)]">
+                      <span>{FEATURED.author} · {FEATURED.date}</span>
                       <span>{FEATURED.read}</span>
                     </div>
-                    <h2 className="display-2 mt-6">{FEATURED.title}</h2>
-                    <p className="lede mt-6">{FEATURED.body}</p>
-                    <span className="arrow-link mt-10">
-                      Read the brief <ArrowRight className="size-4" />
-                    </span>
+                    <Link to="/contact" className="arrow-link mt-8">Read the brief <ArrowRight className="size-4" /></Link>
                   </div>
                 </div>
-              </Link>
+              </article>
             </Reveal>
           </div>
         </section>
 
-        {/* Filters + Grid */}
+        {/* Category filter + grid */}
         <section className="surface-cream border-y border-[color:var(--hairline)] section-pad">
           <div className="container-wide">
             <Reveal>
-              <div className="flex flex-wrap items-center gap-2">
-                {CATEGORIES.map((c, i) => (
+              <div className="flex flex-wrap gap-2 border-b border-[color:var(--hairline)] pb-6">
+                {CATEGORIES.map((c) => (
                   <button
                     key={c}
+                    onClick={() => setActive(c)}
                     className={
-                      i === 0
-                        ? "rounded-full bg-[color:var(--navy-deep)] px-4 py-2 text-[0.8rem] font-medium text-[color:var(--cream)]"
-                        : "rounded-full border border-[color:var(--hairline)] bg-white px-4 py-2 text-[0.8rem] font-medium text-[color:var(--slate-ink)] transition-colors hover:border-[color:var(--navy-deep)] hover:text-[color:var(--navy-deep)]"
+                      active === c
+                        ? "rounded-full bg-[color:var(--navy-deep)] px-5 py-2 text-xs font-semibold uppercase tracking-wider text-[color:var(--cream)]"
+                        : "rounded-full border border-[color:var(--hairline)] bg-white px-5 py-2 text-xs font-semibold uppercase tracking-wider text-[color:var(--slate-ink)] transition-colors hover:border-[color:var(--navy-deep)] hover:text-[color:var(--navy-deep)]"
                     }
                   >
                     {c}
@@ -148,9 +206,9 @@ function InsightsPage() {
             </Reveal>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {POSTS.map((p, i) => (
-                <Reveal key={p.title + i} delay={i * 60}>
-                  <Link to="/insights" className="card-elev card-elev-hover group flex h-full flex-col overflow-hidden">
+              {filteredPosts.map((p, i) => (
+                <Reveal key={p.title} delay={i * 50}>
+                  <article className="card-elev card-elev-hover group flex h-full flex-col overflow-hidden">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         src={p.img}
@@ -162,24 +220,23 @@ function InsightsPage() {
                       />
                     </div>
                     <div className="flex flex-1 flex-col p-7">
-                      <div className="flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.16em] text-[color:var(--metal)]">
-                        <span className="font-semibold text-[color:var(--navy-deep)]">{p.tag}</span>
-                        <span>·</span>
+                      <p className="eyebrow">{p.tag}</p>
+                      <h3 className="mt-3 font-display text-lg font-semibold leading-snug transition-colors group-hover:text-[color:var(--navy)]">
+                        {p.title}
+                      </h3>
+                      <p className="mt-3 flex-1 text-[0.9rem] leading-relaxed text-[color:var(--muted-foreground)]">
+                        {p.body}
+                      </p>
+                      <div className="mt-6 flex items-center justify-between border-t border-[color:var(--hairline)] pt-4 text-xs text-[color:var(--metal)]">
                         <span>{p.date}</span>
-                      </div>
-                      <h3 className="mt-5 font-display text-lg font-semibold leading-snug">{p.title}</h3>
-                      <div className="mt-auto flex items-center justify-between border-t border-[color:var(--hairline)] pt-5">
-                        <span className="text-sm text-[color:var(--muted-foreground)]">{p.read}</span>
-                        <ArrowUpRight className="size-4 text-[color:var(--navy-deep)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        <span className="inline-flex items-center gap-1 font-medium text-[color:var(--navy-deep)]">
+                          {p.read} <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </span>
                       </div>
                     </div>
-                  </Link>
+                  </article>
                 </Reveal>
               ))}
-            </div>
-
-            <div className="mt-14 flex justify-center">
-              <button className="btn-ghost-light">Load more insights</button>
             </div>
           </div>
         </section>
@@ -190,14 +247,20 @@ function InsightsPage() {
             <Reveal>
               <div>
                 <p className="eyebrow-light eyebrow-dot">The Nexus Brief</p>
-                <h2 className="display-2 mt-6 text-[color:var(--cream)]">One executive-grade essay in your inbox each month.</h2>
+                <h2 className="display-2 mt-6 text-[color:var(--cream)]">One practical briefing in your inbox each month.</h2>
                 <p className="lede mt-6 text-[color:var(--cream)]/75">
-                  No newsletter fluff. Written by partners, read by boards. Unsubscribe in one click.
+                  No fluff. Written for IT and business leaders. Unsubscribe in one click.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <form className="rounded-xl border border-white/15 bg-white/[0.04] p-6 backdrop-blur">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("Thank you for subscribing to The Nexus Brief.");
+                }}
+                className="rounded-xl border border-white/15 bg-white/[0.04] p-6 backdrop-blur"
+              >
                 <label className="eyebrow-light" htmlFor="email">Work email</label>
                 <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                   <input
@@ -212,7 +275,7 @@ function InsightsPage() {
                   </button>
                 </div>
                 <p className="mt-4 text-xs text-[color:var(--cream)]/55">
-                  By subscribing you agree to receive occasional emails from MindtreeNexus. We never share your address.
+                  By subscribing you agree to receive occasional emails from Nexus Mind Tree. We never share your address.
                 </p>
               </form>
             </Reveal>

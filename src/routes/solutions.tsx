@@ -10,9 +10,9 @@ import abstract1 from "@/assets/abstract-1.jpg";
 export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
-      { title: "Solutions — Industry & Function | MindtreeNexus" },
-      { name: "description", content: "Enterprise solutions across financial services, healthcare, retail, public sector and more — built for regulated scale." },
-      { property: "og:title", content: "MindtreeNexus Solutions" },
+      { title: "Solutions — Industry & Function | NexusMindTree" },
+      { name: "description", content: "Organised around the way you think about the business: by problem, by industry, and by function." },
+      { property: "og:title", content: "NexusMindTree Solutions" },
       { property: "og:description", content: "Solutions organized by business problem, industry and function." },
     ],
   }),
@@ -20,27 +20,27 @@ export const Route = createFileRoute("/solutions")({
 });
 
 const PROBLEMS = [
-  { title: "Enterprise AI, out of pilot", body: "Move a portfolio of AI use cases from proof-of-concept to safe, measurable production." },
-  { title: "Modernize the core", body: "Retire legacy platforms without stopping the business or the roadmap." },
-  { title: "Own the customer moment", body: "Unify digital, service and operations around one customer graph." },
-  { title: "Resilience & sovereignty", body: "Meet regulatory, sovereignty and continuity requirements without slowing delivery." },
-  { title: "Do more with the team you have", body: "Automate what shouldn't need a human and free your best engineers for what should." },
-  { title: "Build a platform, not projects", body: "Give product teams a paved road so shipping becomes the default, not the exception." },
+  { title: "Stabilise IT operations", body: "Replace reactive break/fix with proactive support, monitoring, and clear SLAs." },
+  { title: "Modernise the core", body: "Migrate and rebuild systems without freezing the business or the roadmap." },
+  { title: "Secure the estate", body: "Close gaps across identity, endpoints, email, and cloud — without theatre." },
+  { title: "Launch a digital product", body: "Move from idea to production with a clear scope, stack, and handover." },
+  { title: "Do more with the team you have", body: "Automate repetitive work and free specialists for higher-value problems." },
+  { title: "Build a platform, not one-offs", body: "Create repeatable foundations so delivery gets faster with every release." },
 ];
 
 const INDUSTRIES = [
-  { name: "Financial Services", body: "Core modernization, AI-assisted underwriting, fraud, regtech." },
-  { name: "Healthcare & Life Sciences", body: "Interoperability, ambient AI for clinicians, secure patient experience." },
-  { name: "Retail & Consumer", body: "Unified commerce, responsible personalization, supply chain intelligence." },
-  { name: "Public Sector", body: "Sovereign cloud, accessible digital services, mission platforms." },
-  { name: "Manufacturing & Energy", body: "Industrial data platforms, predictive operations, sustainability reporting." },
-  { name: "Media & Telco", body: "Content platforms, subscriber analytics, next-gen network operations." },
+  { name: "Financial Services", body: "Secure operations, process automation, and compliance-aware delivery." },
+  { name: "Healthcare & Life Sciences", body: "Resilient IT, secure access, and systems that support care teams." },
+  { name: "Retail & Consumer", body: "Always-on operations, integrations, and customer-facing platforms." },
+  { name: "Public Sector", body: "Reliable digital services with strong security and accessibility expectations." },
+  { name: "Manufacturing & Energy", body: "Connected operations, plant/office IT support, and operational applications." },
+  { name: "Professional Services", body: "Modern workplace, secure collaboration, and client-facing portals." },
 ];
 
 const PILLARS = [
-  { t: "Architecture", b: "Reference architectures for cloud, data, AI and security — battle-tested across regulated industries." },
-  { t: "Transformation", b: "Programs that connect strategy, delivery and run into a single accountable engagement." },
-  { t: "AI enablement", b: "The operating model, guardrails and platforms that make responsible enterprise AI real." },
+  { t: "Architecture", b: "Practical patterns for cloud, security, data, and applications." },
+  { t: "Transformation", b: "Programs that connect strategy, delivery, and run into one engagement." },
+  { t: "Enablement", b: "Documentation, training, and co-managed models that stick after go-live." },
 ];
 
 function SolutionsPage() {
@@ -58,26 +58,28 @@ function SolutionsPage() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6 mx-auto" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
-                Organized around the way you actually think about the business.
+                Organised around the way you think about the business.
               </h1>
             </Reveal>
             <Reveal delay={140}>
               <p className="lede mt-8 text-[color:var(--cream)]/80 mx-auto text-xl">
-                By problem. By industry. By function. Same senior team, same delivery discipline — shaped to the ambition and risk of your context.
+                By problem. By industry. By function. Same team, same delivery discipline — shaped to your risk, budget, and goals.
               </p>
             </Reveal>
             <Reveal delay={200}>
               <div className="mt-12 flex flex-wrap justify-center gap-4">
-                <Link to="/about" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                <Link to="/contact" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
                   Talk to a solution lead
                 </Link>
-                <Link to="/portfolio" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
-                  See outcomes
+                <Link to="/services" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
+                  Explore services
                 </Link>
               </div>
             </Reveal>
           </div>
-        </section>{/* Solutions by problem */}
+        </section>
+
+        {/* Solutions by problem */}
         <section className="section-pad">
           <div className="container-wide">
             <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">
@@ -85,7 +87,7 @@ function SolutionsPage() {
                 <Reveal><p className="eyebrow eyebrow-dot">By business problem</p></Reveal>
                 <Reveal delay={80}><h2 className="display-2 mt-5">Six problems we're built to solve.</h2></Reveal>
               </div>
-              <Reveal delay={120}><p className="lede">If you recognize your quarter in any of the six, we've done this before — in your industry.</p></Reveal>
+              <Reveal delay={120}><p className="lede">If any of these sound like your next quarter, we can help you shape a practical plan.</p></Reveal>
             </div>
 
             <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-[color:var(--hairline)] bg-[color:var(--hairline)] md:grid-cols-2 lg:grid-cols-3">
@@ -97,7 +99,7 @@ function SolutionsPage() {
                     </p>
                     <h3 className="mt-8 font-display text-xl font-semibold leading-snug">{p.title}</h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-[color:var(--muted-foreground)]">{p.body}</p>
-                    <Link to="/about" className="arrow-link mt-8">Talk this through <ArrowRight className="size-4" /></Link>
+                    <Link to="/contact" className="arrow-link mt-8">Talk this through <ArrowRight className="size-4" /></Link>
                   </article>
                 </Reveal>
               ))}
@@ -111,15 +113,15 @@ function SolutionsPage() {
             <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">
               <div>
                 <Reveal><p className="eyebrow eyebrow-dot">By industry</p></Reveal>
-                <Reveal delay={80}><h2 className="display-2 mt-5">Sector fluency that shows up on day one.</h2></Reveal>
+                <Reveal delay={80}><h2 className="display-2 mt-5">Sector fluency that shows up in how we scope the work.</h2></Reveal>
               </div>
-              <Reveal delay={120}><p className="lede">Our sector specialists have spent careers inside the industries they now serve.</p></Reveal>
+              <Reveal delay={120}><p className="lede">Our sector specialists bring lived experience to designing solutions that fit.</p></Reveal>
             </div>
 
             <div className="mt-14 divide-y divide-[color:var(--hairline)] border-y border-[color:var(--hairline)]">
               {INDUSTRIES.map((ind, i) => (
                 <Reveal key={ind.name} delay={i * 40}>
-                  <Link to="/solutions" className="group grid gap-4 py-8 md:grid-cols-[1fr_1.4fr_auto] md:items-center md:gap-10">
+                  <Link to="/contact" className="group grid gap-4 py-8 md:grid-cols-[1fr_1.4fr_auto] md:items-center md:gap-10">
                     <h3 className="font-display text-2xl font-semibold transition-colors group-hover:text-[color:var(--navy)]">{ind.name}</h3>
                     <p className="text-[0.95rem] leading-relaxed text-[color:var(--muted-foreground)]">{ind.body}</p>
                     <span className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--navy-deep)]">
@@ -132,7 +134,7 @@ function SolutionsPage() {
           </div>
         </section>
 
-        {/* Architecture / AI enablement */}
+        {/* Architecture / Transformation / Enablement */}
         <section className="section-pad">
           <div className="container-wide grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-center">
             <Reveal>
@@ -146,7 +148,7 @@ function SolutionsPage() {
               />
             </Reveal>
             <div>
-              <Reveal><p className="eyebrow eyebrow-dot">Architecture · Transformation · AI</p></Reveal>
+              <Reveal><p className="eyebrow eyebrow-dot">Architecture · Transformation · Enablement</p></Reveal>
               <Reveal delay={80}><h2 className="display-2 mt-5">Three horizontal pillars that run through every engagement.</h2></Reveal>
               <div className="mt-10 space-y-8">
                 {PILLARS.map((p, i) => (
@@ -164,8 +166,8 @@ function SolutionsPage() {
 
         <CTA
           eyebrow="Solve it together"
-          title="Bring us the industry problem you're closest to."
-          body="We'll pull a solution lead with lived experience in your sector into a 30-minute working session."
+          title="Bring us the problem you're closest to."
+          body="We'll join a 30-minute working session and help you decide what to support, what to build, and what to defer."
         />
       </main>
       <Footer />

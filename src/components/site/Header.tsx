@@ -32,7 +32,7 @@ export function Header({ variant = "dark" }: { variant?: "dark" | "light" }) {
         <Link to="/" className={`flex items-center gap-2.5 ${textCls}`}>
           <LogoMark />
           <span className="font-display text-[1.05rem] font-semibold tracking-tight">
-            MindtreeNexus
+            NexusMindTree
           </span>
         </Link>
 
