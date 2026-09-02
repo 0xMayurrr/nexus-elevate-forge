@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "MindtreeNexus" },
+      { name: "author", content: "NexusMindTree" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -142,7 +142,7 @@ function Preloader() {
 
   if (!loading) return null;
 
-  const brandName = "MindtreeNexus";
+  const brandName = "NexusMindTree";
 
   return (
     <div

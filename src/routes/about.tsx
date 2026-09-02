@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
@@ -13,27 +13,27 @@ import l4 from "@/assets/leader-4.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About MindtreeNexus — A Long-Horizon Technology Partner" },
-      { name: "description", content: "Meet the leaders, values and operating principles behind MindtreeNexus — a global AI, cloud and engineering partner." },
-      { property: "og:title", content: "About MindtreeNexus" },
-      { property: "og:description", content: "A long-horizon technology partner to the world's most ambitious enterprises." },
+      { title: "About Us — Story, Team & Culture | NexusMindTree" },
+      { name: "description", content: "A practical partner for IT support and product delivery. Explore our mission, values, and leadership." },
+      { property: "og:title", content: "About NexusMindTree" },
+      { property: "og:description", content: "A practical partner for IT support and product delivery." },
     ],
   }),
   component: AboutPage,
 });
 
 const VALUES = [
-  { title: "Craft", body: "We ship software and strategy of a caliber our clients would sign their name to." },
-  { title: "Candor", body: "We say the hard thing early. Executives don't hire us for comfortable answers." },
-  { title: "Curiosity", body: "We stay students of the industries we serve. Every engagement teaches us something." },
-  { title: "Care", body: "We measure success by client outcomes, not billable hours." },
+  { title: "Craft", body: "We write code, configure systems, and design processes we're proud to put our name on." },
+  { title: "Candor", body: "We tell you what we see — including when the right answer is not to build or not to buy." },
+  { title: "Curiosity", body: "We stay close to emerging tools and platforms without chasing fads at your expense." },
+  { title: "Care", body: "We treat your users, data, and budget with the same seriousness we would our own." },
 ];
 
 const LEADERS = [
-  { img: l1, name: "Priya Ramaswamy", role: "Chief Executive Officer", bio: "Former partner, Global Consulting; 22 years scaling enterprise technology." },
-  { img: l2, name: "Aditya Menon", role: "President, AI & Data", bio: "Built the AI practice from three engineers to over one hundred and eighty." },
-  { img: l3, name: "Amara Okonkwo", role: "Chief Client Officer", bio: "Twenty years partnering with regulated-industry executive teams." },
-  { img: l4, name: "Kenji Sato", role: "Chief Technology Officer", bio: "Longtime platform engineer; sits on two responsible-AI standards boards." },
+  { img: l1, name: "Leadership Lead", role: "Founder & CEO", bio: "Leading strategy, delivery standards, and client partnerships." },
+  { img: l2, name: "Engineering Lead", role: "Co-founder & Head of Engineering", bio: "Overseeing architecture, product delivery, and technical craft." },
+  { img: l3, name: "Services Lead", role: "Head of Managed Services", bio: "Leading day-to-day IT support, service desk, and infrastructure operations." },
+  { img: l4, name: "Security Lead", role: "Head of Security & Trust", bio: "Guiding security posture, compliance alignment, and risk practices." },
 ];
 
 function AboutPage() {
@@ -48,22 +48,22 @@ function AboutPage() {
           <div className="container-wide relative z-10 grid gap-16 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
               <Reveal>
-                <p className="eyebrow-light eyebrow-dot">About MindtreeNexus</p>
+                <p className="eyebrow-light eyebrow-dot">About Nexus Mind Tree</p>
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                  A long-horizon partner for the enterprise moment ahead.
+                  A practical partner for IT support and product delivery.
                 </h1>
               </Reveal>
               <Reveal delay={140}>
                 <p className="lede mt-8 text-[color:var(--cream)]/80">
-                  We are engineers, strategists and industry specialists working alongside the leaders of financial services, healthcare, retail and the public sector — building the intelligent operating systems of the modern enterprise.
+                  We are engineers, support specialists, and advisors helping organisations run technology with confidence — and build the products that move them forward.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <div className="mt-12 flex flex-wrap gap-4">
                   <Link to="/portfolio" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
-                    See our work
+                    See what we do
                   </Link>
                   <Link to="/services" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
                     What we do
@@ -75,10 +75,10 @@ function AboutPage() {
             {/* Integrated Stats Grid */}
             <div className="grid grid-cols-2 gap-8 lg:pl-12 lg:border-l lg:border-white/10">
               {[
-                { label: "Founded", value: "2011" },
-                { label: "Engineers", value: "600+" },
-                { label: "Global Offices", value: "18" },
-                { label: "Client Retention", value: "94%" },
+                { label: "Founded", value: "2026" },
+                { label: "Practices", value: "6" },
+                { label: "Delivery model", value: "Remote-first" },
+                { label: "End-to-end ownership", value: "1 team" },
               ].map((stat, i) => (
                 <Reveal key={stat.label} delay={160 + i * 40}>
                   <div>
@@ -103,29 +103,20 @@ function AboutPage() {
             <Reveal delay={100}>
               <div className="space-y-6 text-[1.05rem] leading-relaxed text-[color:var(--slate-ink)]">
                 <p>
-                  MindtreeNexus was founded in 2011 on the belief that the divide between
-                  strategy consultants and engineering vendors was hurting our clients.
-                  Boards were paying twice — once for the plan, once for the build — and
-                  getting neither the outcomes nor the accountability they expected.
+                  Most organisations don't have separate technology realities for "keeping things running" and "building what's next." In practice, they are the same estate, the same team, and the same budget.
                 </p>
                 <p>
-                  We built a different kind of firm: one where partners architect the
-                  answer and stay on the floor while it's engineered. Fifteen years later,
-                  that model has become the way we serve some of the most demanding
-                  enterprises in the world.
+                  Nexus Mind Tree was built to bring those two halves together under one accountable roof — so you don't have to hire one vendor to patch your systems and another to build your products.
                 </p>
                 <p>
-                  Today we operate across eighteen countries with dedicated practices in
-                  AI, cloud, engineering, digital operations and cybersecurity — and one
-                  operating principle that hasn't changed since day one.
+                  We work openly, ship in small increments, and measure success by the quiet reliability of your operations and the real-world performance of the software we build.
                 </p>
                 <blockquote className="mt-10 border-l-2 border-[color:var(--gold)] pl-6">
                   <p className="font-display text-2xl leading-snug text-[color:var(--navy-deep)]">
-                    "Strategy without delivery is a report. Delivery without strategy is a
-                    risk. Our clients hire us to hold both."
+                    "Support without improvement is stagnation. Delivery without ownership is risk. Our clients hire us to hold both."
                   </p>
                   <footer className="mt-4 text-sm text-[color:var(--muted-foreground)]">
-                    Priya Ramaswamy, Chief Executive Officer
+                    Founding team · Nexus Mind Tree
                   </footer>
                 </blockquote>
               </div>
@@ -133,14 +124,14 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Mission / Vision / Values */}
+        {/* Mission / Vision / Promise */}
         <section className="surface-cream section-pad border-y border-[color:var(--hairline)]">
           <div className="container-wide">
             <div className="grid gap-16 lg:grid-cols-3">
               {[
-                { label: "Mission", title: "To make ambitious enterprises measurably more intelligent, every quarter." },
-                { label: "Vision", title: "A world where every organization treats software and AI as core craft, not vendor category." },
-                { label: "Promise", title: "Senior people, in the room, doing the work — for as long as the mission runs." },
+                { label: "Mission", title: "To make technology reliable, secure, and useful for every organisation we serve." },
+                { label: "Vision", title: "A world where IT support and product delivery feel like one accountable partnership." },
+                { label: "Promise", title: "Clear communication, practical engineering, and continuous improvement — for as long as the mission runs." },
               ].map((b, i) => (
                 <Reveal key={b.label} delay={i * 80}>
                   <div>
@@ -154,7 +145,7 @@ function AboutPage() {
             <div className="mt-20">
               <Reveal><p className="eyebrow eyebrow-dot">Our values</p></Reveal>
               <Reveal delay={80}>
-                <h3 className="display-3 mt-5 max-w-2xl">Four words we hire, promote and part ways over.</h3>
+                <h3 className="display-3 mt-5 max-w-2xl">Four words we hire and deliver by.</h3>
               </Reveal>
               <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-[color:var(--hairline)] bg-[color:var(--hairline)] md:grid-cols-2 lg:grid-cols-4">
                 {VALUES.map((v, i) => (
@@ -179,10 +170,10 @@ function AboutPage() {
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <Reveal><p className="eyebrow eyebrow-dot">Leadership</p></Reveal>
-                <Reveal delay={80}><h2 className="display-2 mt-5 max-w-2xl">The senior people on your account.</h2></Reveal>
+                <Reveal delay={80}><h2 className="display-2 mt-5 max-w-2xl">The team on the hook.</h2></Reveal>
               </div>
               <Reveal delay={140}>
-                <p className="lede">Not a rotating team of juniors — the partners you meet on day one lead the work through delivery.</p>
+                <p className="lede">The practitioners you meet during discovery are the ones who design and lead your work.</p>
               </Reveal>
             </div>
             <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -209,24 +200,24 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Trust */}
+        {/* Why clients will trust us */}
         <section className="surface-dark section-pad">
           <div className="container-wide grid gap-16 lg:grid-cols-[1fr_1.4fr]">
             <Reveal>
               <div>
-                <p className="eyebrow-light eyebrow-dot">Why clients trust us</p>
-                <h2 className="display-2 mt-6 text-[color:var(--cream)]">Nine-year average partnership.</h2>
+                <p className="eyebrow-light eyebrow-dot">Why clients will trust us</p>
+                <h2 className="display-2 mt-6 text-[color:var(--cream)]">Trust is earned in delivery.</h2>
                 <p className="lede mt-6 text-[color:var(--cream)]/70">
-                  Trust is a lagging indicator. Below is what we do — quarter after quarter — to earn it.
+                  As a new company, we earn trust the same way every strong IT partner does — by being clear, present, and accountable.
                 </p>
               </div>
             </Reveal>
             <div className="grid gap-px bg-white/10 sm:grid-cols-2">
               {[
-                ["Senior partner accountability", "Every account has a named partner responsible end-to-end."],
-                ["Outcome-linked commercials", "We tie a portion of fees to the outcomes we and you agree on."],
-                ["Open delivery", "Shared boards, weekly demos, no black boxes."],
-                ["Responsible AI review", "Independent internal review on every model that touches customers."],
+                ["Named ownership", "Every engagement has a clear owner responsible end-to-end."],
+                ["Transparent scope", "Inclusions, exclusions, and success measures written before work starts."],
+                ["Open delivery", "Shared updates, visible progress, no black boxes."],
+                ["Secure by design", "Security and operational hygiene inside every engagement."],
               ].map(([t, b], i) => (
                 <Reveal key={t} delay={i * 60}>
                   <div className="h-full bg-[color:var(--navy-deep)] p-8">
@@ -242,11 +233,11 @@ function AboutPage() {
         <CTA
           eyebrow="Work with us"
           title="Bring us the problem you've been putting off."
-          body="If you're leading a transformation and want senior operators alongside you, we should talk."
+          body="If you need dependable IT support, a product built properly, or both — we should talk."
           primaryLabel="Introduce yourself"
-          primaryTo="/about"
-          secondaryLabel="Read what we've shipped"
-          secondaryTo="/portfolio"
+          primaryTo="/contact"
+          secondaryLabel="Explore services"
+          secondaryTo="/services"
         />
       </main>
       <Footer />

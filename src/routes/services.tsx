@@ -10,29 +10,95 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — AI, Cloud, Engineering & Operations | MindtreeNexus" },
-      { name: "description", content: "Full-stack services across AI & data, cloud modernization, engineering, digital operations, cybersecurity and advisory." },
-      { property: "og:title", content: "MindtreeNexus Services" },
-      { property: "og:description", content: "Advisory clarity paired with engineering craft — across AI, cloud, engineering and operations." },
+      { title: "Services — IT Support & Product Engineering | NexusMindTree" },
+      { name: "description", content: "From managed operations to custom software, our practices share the same team discipline: clear scope, secure delivery, and continuous improvement." },
+      { property: "og:title", content: "NexusMindTree Services" },
+      { property: "og:description", content: "IT support and product engineering designed to work as one." },
     ],
   }),
   component: ServicesPage,
 });
 
 const CATS = [
-  { icon: Sparkles, tag: "01", title: "AI & Data", body: "Generative AI, applied ML, modern data platforms and responsible AI operating models.", items: ["Generative AI product engineering", "Enterprise data platforms", "MLOps & model governance", "Applied research"] },
-  { icon: Cloud, tag: "02", title: "Cloud Modernization", body: "Migration, platform engineering and FinOps across the three hyperscalers.", items: ["Cloud strategy & landing zones", "Application modernization", "Platform engineering", "FinOps & sustainability"] },
-  { icon: Cpu, tag: "03", title: "Engineering", body: "Product engineering, embedded platform teams and site reliability at global scale.", items: ["Product & platform engineering", "SRE and observability", "Mobile & web experiences", "API & integration"] },
-  { icon: Layers, tag: "04", title: "Digital Operations", body: "24/7 managed services, service desks and run-the-bank operations that free your team.", items: ["Managed cloud operations", "Service desk & end-user", "Application managed services", "Automation & AIOps"] },
-  { icon: ShieldCheck, tag: "05", title: "Cybersecurity", body: "Zero-trust architecture, threat detection and compliance for regulated industries.", items: ["Zero-trust architecture", "Detection & response", "Identity & access", "Regulatory compliance"] },
-  { icon: LineChart, tag: "06", title: "Advisory", body: "C-suite advisory on digital, AI and operating-model transformation.", items: ["Digital & AI strategy", "Operating model design", "Portfolio prioritization", "Value assurance"] },
+  { 
+    icon: Layers, 
+    tag: "01", 
+    title: "Managed IT Support", 
+    body: "Proactive IT management spanning monitoring, maintenance, service desk, and continuous improvement.", 
+    items: [
+      "Service desk & end-user support", 
+      "Monitoring, patching & backups oversight", 
+      "Endpoint and identity management", 
+      "Co-managed support with your internal team"
+    ] 
+  },
+  { 
+    icon: Cloud, 
+    tag: "02", 
+    title: "Cloud & Infrastructure", 
+    body: "Design, migrate, and manage cloud and hybrid environments with performance, cost, and security in mind.", 
+    items: [
+      "Cloud strategy & landing zones", 
+      "Migration & modernisation", 
+      "Platform engineering basics", 
+      "Cost optimisation & observability"
+    ] 
+  },
+  { 
+    icon: Cpu, 
+    tag: "03", 
+    title: "Product Engineering", 
+    body: "Custom applications and digital products — from discovery to production and ongoing iteration.", 
+    items: [
+      "Web & cloud application development", 
+      "API & system integration", 
+      "Quality engineering & release automation", 
+      "Product discovery & MVP delivery"
+    ] 
+  },
+  { 
+    icon: Sparkles, 
+    tag: "04", 
+    title: "Digital Operations", 
+    body: "Managed services that free your team to focus on priorities while we run the day-to-day.", 
+    items: [
+      "Managed cloud operations", 
+      "Application managed services", 
+      "Automation & AIOps foundations", 
+      "Continuous service improvement"
+    ] 
+  },
+  { 
+    icon: ShieldCheck, 
+    tag: "05", 
+    title: "Cybersecurity", 
+    body: "Practical protection for modern workplaces and cloud environments.", 
+    items: [
+      "Identity & access hardening", 
+      "Endpoint, email & network controls", 
+      "Detection pathways & response readiness", 
+      "Compliance-aligned controls"
+    ] 
+  },
+  { 
+    icon: LineChart, 
+    tag: "06", 
+    title: "Advisory", 
+    body: "Right-fit guidance before big spend — roadmaps you can actually execute.", 
+    items: [
+      "Technology roadmap & prioritisation", 
+      "Operating model design", 
+      "Platform / vendor selection support", 
+      "Value tracking after go-live"
+    ] 
+  },
 ];
 
 const PROCESS = [
-  { n: "01", t: "Diagnose", b: "Two weeks with your leadership. We come back with a written point of view and a shaped program — not a slideware." },
-  { n: "02", t: "Design", b: "Cross-functional pods design the target state, tech spine and change plan side-by-side with your people." },
-  { n: "03", t: "Deliver", b: "Small teams ship in short cycles. Progress is visible on a shared board from week one." },
-  { n: "04", t: "Run", b: "We operate what we build, or transition it cleanly — always with a written exit path." },
+  { n: "01", t: "Diagnose", b: "We review your environment, risks, and goals — then return a clear point of view and recommended scope." },
+  { n: "02", t: "Design", b: "We shape the target state, delivery plan, and success measures side-by-side with your team." },
+  { n: "03", t: "Deliver", b: "Small teams ship in short cycles. Progress stays visible and easy to follow." },
+  { n: "04", t: "Run", b: "We operate what we build, improve it continuously, or transition it cleanly." },
 ];
 
 function ServicesPage() {
@@ -51,7 +117,7 @@ function ServicesPage() {
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
-                  Six practices designed to work as one.
+                  IT support and product engineering designed to work as one.
                 </h1>
               </Reveal>
             </div>
@@ -59,17 +125,17 @@ function ServicesPage() {
             <div className="lg:pt-4 lg:pb-32">
               <Reveal delay={120}>
                 <p className="lede text-[color:var(--cream)]/80 text-xl md:text-2xl leading-relaxed">
-                  We combine deep industry knowledge with modern engineering to solve the problems that actually matter to your business. From boardroom strategy to 24/7 operations, our practices share teams, tooling and accountability.
+                  From managed operations to custom software, our practices share the same team discipline: clear scope, secure delivery, and continuous improvement.
                 </p>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-8 text-[color:var(--cream)]/60 max-w-xl text-lg leading-relaxed">
-                  We built our firm differently: partners architect the answer and stay on the floor while it's engineered. No handoffs. No excuses.
+                  We built our firm for growing organisations: the people who design the answer stay involved while it is delivered. No unnecessary handoffs.
                 </p>
               </Reveal>
               <Reveal delay={200}>
                 <div className="mt-16 flex flex-wrap gap-4">
-                  <Link to="/about" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
+                  <Link to="/contact" className="btn-solid-light px-8 py-3 rounded-2xl font-bold">
                     Book a discovery call
                   </Link>
                   <a href="#practices" className="btn-ghost-dark px-8 py-3 rounded-2xl font-bold">
@@ -89,7 +155,7 @@ function ServicesPage() {
             <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">
               <div>
                 <Reveal><p className="eyebrow eyebrow-dot">Full-stack services</p></Reveal>
-                <Reveal delay={80}><h2 className="display-2 mt-5">Depth in every layer of the modern enterprise stack.</h2></Reveal>
+                <Reveal delay={80}><h2 className="display-2 mt-5">Depth across support, cloud, security, and build.</h2></Reveal>
               </div>
               <Reveal delay={120}><p className="lede">Choose one practice — or engage them as a single team. We staff for the outcome, not the org chart.</p></Reveal>
             </div>
@@ -116,7 +182,7 @@ function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/about" className="arrow-link self-center md:self-start">
+                    <Link to="/contact" className="arrow-link self-center md:self-start">
                       Talk to this practice <ArrowRight className="size-4" />
                     </Link>
                   </article>
@@ -134,7 +200,7 @@ function ServicesPage() {
                 <Reveal><p className="eyebrow-light eyebrow-dot">Delivery model</p></Reveal>
                 <Reveal delay={80}><h2 className="display-2 mt-5 text-[color:var(--cream)]">One rhythm from diagnosis to run.</h2></Reveal>
               </div>
-              <Reveal delay={120}><p className="lede text-[color:var(--cream)]/75">Four repeatable stages, sized to the ambition of the program. Executive-visible from week one.</p></Reveal>
+              <Reveal delay={120}><p className="lede text-[color:var(--cream)]/75">Four clear stages, sized to the ambition of the work. Visible from week one.</p></Reveal>
             </div>
 
             <ol className="mt-16 grid gap-px overflow-hidden rounded-xl bg-white/10 md:grid-cols-2 lg:grid-cols-4">
@@ -151,15 +217,15 @@ function ServicesPage() {
           </div>
         </section>
 
-        {/* Metrics */}
+        {/* Stats row (startup-honest) */}
         <section className="section-pad">
           <div className="container-wide">
             <div className="grid gap-4 md:grid-cols-4">
               {[
-                ["94%", "Client retention (5-yr)"],
-                ["1,200+", "Programs delivered"],
-                ["38%", "Avg. cloud cost reduction"],
-                ["4.9/5", "Client NPS across FY25"],
+                ["6", "Core practices"],
+                ["24/7", "Support options available"],
+                ["1", "Accountable delivery team"],
+                ["End-to-end", "Design → deploy → optimise"],
               ].map(([n, l], i) => (
                 <Reveal key={l} delay={i * 60}>
                   <div className="border-t border-[color:var(--hairline)] pt-6">
@@ -174,8 +240,8 @@ function ServicesPage() {
 
         <CTA
           eyebrow="Start a program"
-          title="Tell us the outcome. We'll bring the team."
-          body="Two-week diagnostic. Fixed price. Written point of view at the end — yours to keep whether we work together or not."
+          title="Tell us the outcome. We'll bring the plan."
+          body="Short discovery. Clear proposal. Yours to keep whether we work together or not."
         />
       </main>
       <Footer />

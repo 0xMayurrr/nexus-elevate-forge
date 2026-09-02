@@ -12,16 +12,14 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact MindtreeNexus — Enterprise Technology Partner" },
-      { name: "description", content: "Get in touch with MindtreeNexus to discuss your enterprise technology needs, from AI platforms to cloud transformation." },
-      { property: "og:title", content: "Contact MindtreeNexus" },
-      { property: "og:description", content: "Get in touch with our team of global enterprise technology partners." },
+      { title: "Contact NexusMindTree | Start a Project or IT Partnership" },
+      { name: "description", content: "Let's talk about your IT environment — or your next product. We'll reply within one business day." },
+      { property: "og:title", content: "Contact NexusMindTree" },
+      { property: "og:description", content: "Let's talk about your IT environment — or your next product. We'll reply within one business day." },
     ],
   }),
   component: ContactPage,
 });
-
-
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -51,12 +49,12 @@ function ContactPage() {
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="font-display font-bold leading-[1.05] tracking-tight text-[color:var(--cream)] mt-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                  Let's build the future of your enterprise.
+                  Let's talk about your IT environment — or your next product.
                 </h1>
               </Reveal>
               <Reveal delay={140}>
                 <p className="lede mt-8 text-[color:var(--cream)]/80">
-                  Connect with our partners to discuss your technology strategy, engineering needs, and digital transformation goals. We typically reply within 4 hours.
+                  Share a little context and we'll reply within one business day with the right next step.
                 </p>
               </Reveal>
             </div>
@@ -73,7 +71,7 @@ function ContactPage() {
                 <div className="mb-10">
                   <h2 className="display-3 text-[color:var(--navy-deep)]">Get in Touch</h2>
                   <p className="mt-4 text-[color:var(--muted-foreground)] leading-relaxed text-lg">
-                    Fill out the form below and one of our practice leads will reach out to schedule an introductory call.
+                    Fill out the form below and a member of our team will reach out to schedule an introductory call.
                   </p>
                 </div>
               </Reveal>
@@ -88,7 +86,7 @@ function ContactPage() {
                       Message Received
                     </h3>
                     <p className="mt-4 text-[color:var(--muted-foreground)] text-lg leading-relaxed max-w-sm mx-auto">
-                      Thank you for reaching out. A partner from our team will contact you shortly.
+                      Thank you for reaching out. Someone from our team will contact you shortly.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
@@ -146,10 +144,11 @@ function ContactPage() {
                         id="inquiry" 
                         className="w-full rounded-xl border border-[color:var(--hairline)] bg-[color:var(--cream)]/30 px-4 py-3.5 text-sm focus:border-[color:var(--navy-deep)] focus:outline-none focus:ring-1 focus:ring-[color:var(--navy-deep)] transition-colors"
                       >
-                        <option>Enterprise AI Solutions</option>
-                        <option>Cloud Architecture & Migration</option>
-                        <option>Platform Engineering</option>
-                        <option>Data Strategy & Modernization</option>
+                        <option>Managed IT Support</option>
+                        <option>Cloud & Infrastructure</option>
+                        <option>Product Development</option>
+                        <option>Cybersecurity</option>
+                        <option>Data / Automation / AI</option>
                         <option>Other / General Inquiry</option>
                       </select>
                     </div>
@@ -160,7 +159,7 @@ function ContactPage() {
                         id="message"
                         required
                         rows={4}
-                        placeholder="Tell us about your project, timeline, and any specific requirements..."
+                        placeholder="Tell us about your environment, goals, timeline, and any constraints..."
                         className="w-full resize-none rounded-xl border border-[color:var(--hairline)] bg-[color:var(--cream)]/30 px-4 py-3.5 text-sm focus:border-[color:var(--navy-deep)] focus:outline-none focus:ring-1 focus:ring-[color:var(--navy-deep)] transition-colors placeholder:text-slate-400"
                       ></textarea>
                     </div>
@@ -189,17 +188,15 @@ function ContactPage() {
               </Reveal>
             </div>
 
-
-
           </div>
         </section>
 
         <CTA 
           eyebrow="Careers"
-          title="Ready to join our global team?"
-          body="We are always looking for exceptional engineers, strategists, and designers to build the future of enterprise technology."
+          title="Ready to help us build Nexus Mind Tree?"
+          body="We're looking for strong engineers, support specialists, and delivery-minded people who care about craft and clients."
           primaryLabel="View open roles"
-          primaryTo="/about"
+          primaryTo="/contact"
           secondaryLabel="Learn about our culture"
           secondaryTo="/about"
         />

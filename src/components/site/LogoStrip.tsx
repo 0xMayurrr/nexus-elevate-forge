@@ -63,7 +63,7 @@ export function LogoStrip({ variant = "light" }: { variant?: "light" | "dark" })
               : "eyebrow text-center w-full block mb-6 md:mb-8"
           }
         >
-          Trusted by ambitious enterprises worldwide
+          Technologies we support and build with
         </p>
       </div>
       
